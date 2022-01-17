@@ -32,7 +32,6 @@ public class GameEndedState: GameState {
     }
     
     public func addMark(at position: GameboardPosition) {
-        <#code#>
     }
     
     private func winnerName(from winner: Player) -> String {

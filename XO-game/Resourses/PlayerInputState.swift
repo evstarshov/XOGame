@@ -11,6 +11,7 @@ import Foundation
 
 public class PlayerInputState: GameState {
     
+    public let markViewPrototype: MarkView
     public private(set) var isCompleted = false
     public let player: Player
     private(set) weak var gameViewController: GameViewController?
@@ -18,11 +19,12 @@ public class PlayerInputState: GameState {
     private(set) weak var gameboardView: GameboardView?
     
     
-    init(player: Player, gameViewController: GameViewController, gameboard: Gameboard, gameboardView: GameboardView) {
+    init(player: Player, gameViewController: GameViewController, markViewPrototype: MarkView, gameboard: Gameboard, gameboardView: GameboardView) {
         self.player = player
         self.gameViewController = gameViewController
         self.gameboard = gameboard
         self.gameboardView = gameboardView
+        self.markViewPrototype = markViewPrototype
     }
     
     
@@ -41,19 +43,13 @@ public class PlayerInputState: GameState {
     }
     
     public func addMark(at position: GameboardPosition) {
-        guard let gameboardView = self.gameboardView,
-        gameboardView.canPlaceMarkView(at: position) else { return }
-        
-        let markView: MarkView
-        switch self.player {
-        case .first:
-            markView = XView()
-        case .second:
-            markView = OView()
-        }
-        self.gameboard?.setPlayer(self.player, at: position)
-        self.gameboardView?.placeMarkView(markView, at: position)
-        self.isCompleted = true
+        guard let gameboardView = self.gameboardView
+                , gameboardView.canPlaceMarkView(at: position)
+                else { return }
+            
+            self.gameboard?.setPlayer(self.player, at: position)
+            self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
+            self.isCompleted = true
     }
     
     
