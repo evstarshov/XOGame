@@ -43,6 +43,7 @@ public class PlayerInputState: GameState {
     }
     
     public func addMark(at position: GameboardPosition) {
+        Log(.playerInput(player: self.player, position: position))
         guard let gameboardView = self.gameboardView
                 , gameboardView.canPlaceMarkView(at: position)
                 else { return }
