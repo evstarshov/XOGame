@@ -14,6 +14,9 @@
 		3AAB2CF1279591BD009C8047 /* LogCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CF0279591BD009C8047 /* LogCommand.swift */; };
 		3AAB2CF327959224009C8047 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CF227959224009C8047 /* Logger.swift */; };
 		3AAB2CF5279592D6009C8047 /* LoggerInvoker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CF4279592D6009C8047 /* LoggerInvoker.swift */; };
+		3AAB2CF82795A315009C8047 /* AIInputState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CF72795A315009C8047 /* AIInputState.swift */; };
+		3AAB2CFB2795C22A009C8047 /* GameSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CFA2795C22A009C8047 /* GameSession.swift */; };
+		3AAB2CFD2795C44B009C8047 /* PlayerMoves.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3AAB2CFC2795C44B009C8047 /* PlayerMoves.swift */; };
 		F874E4712224621100364CAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4702224621100364CAE /* AppDelegate.swift */; };
 		F874E4732224621100364CAE /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F874E4722224621100364CAE /* GameViewController.swift */; };
 		F874E4762224621100364CAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F874E4742224621100364CAE /* Main.storyboard */; };
@@ -38,6 +41,9 @@
 		3AAB2CF0279591BD009C8047 /* LogCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogCommand.swift; sourceTree = "<group>"; };
 		3AAB2CF227959224009C8047 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		3AAB2CF4279592D6009C8047 /* LoggerInvoker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggerInvoker.swift; sourceTree = "<group>"; };
+		3AAB2CF72795A315009C8047 /* AIInputState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIInputState.swift; sourceTree = "<group>"; };
+		3AAB2CFA2795C22A009C8047 /* GameSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSession.swift; sourceTree = "<group>"; };
+		3AAB2CFC2795C44B009C8047 /* PlayerMoves.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerMoves.swift; sourceTree = "<group>"; };
 		F874E46D2224621100364CAE /* XO-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "XO-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F874E4702224621100364CAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F874E4722224621100364CAE /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -70,10 +76,11 @@
 		3A4EA3A4279172B100F35570 /* Resourses */ = {
 			isa = PBXGroup;
 			children = (
+				3AAB2CF62795A2F8009C8047 /* States */,
 				F874E4F02225DFF700364CAE /* Referee.swift */,
 				3A4EA3A5279172CE00F35570 /* GameProtocols.swift */,
-				3A4EA3A7279173AF00F35570 /* PlayerInputState.swift */,
 				3A4EA3A927918B1900F35570 /* GameEndedState.swift */,
+				3AAB2CFA2795C22A009C8047 /* GameSession.swift */,
 			);
 			path = Resourses;
 			sourceTree = "<group>";
@@ -87,6 +94,15 @@
 				3AAB2CF4279592D6009C8047 /* LoggerInvoker.swift */,
 			);
 			path = Loggers;
+			sourceTree = "<group>";
+		};
+		3AAB2CF62795A2F8009C8047 /* States */ = {
+			isa = PBXGroup;
+			children = (
+				3A4EA3A7279173AF00F35570 /* PlayerInputState.swift */,
+				3AAB2CF72795A315009C8047 /* AIInputState.swift */,
+			);
+			path = States;
 			sourceTree = "<group>";
 		};
 		F874E4642224621100364CAE = {
@@ -148,6 +164,7 @@
 				F874E4F22225E0B100364CAE /* GameboardSize.swift */,
 				F874E4F42225E2CD00364CAE /* Gameboard.swift */,
 				F874E4EE2225DE4500364CAE /* Player.swift */,
+				3AAB2CFC2795C44B009C8047 /* PlayerMoves.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -225,9 +242,11 @@
 			files = (
 				3A4EA3AA27918B1900F35570 /* GameEndedState.swift in Sources */,
 				3A4EA3A8279173AF00F35570 /* PlayerInputState.swift in Sources */,
+				3AAB2CFB2795C22A009C8047 /* GameSession.swift in Sources */,
 				F874E4732224621100364CAE /* GameViewController.swift in Sources */,
 				F874E4DD2225C25D00364CAE /* GameboardPosition.swift in Sources */,
 				F874E4DF2225C76000364CAE /* MarkView.swift in Sources */,
+				3AAB2CF82795A315009C8047 /* AIInputState.swift in Sources */,
 				F874E4F12225DFF700364CAE /* Referee.swift in Sources */,
 				3AAB2CF5279592D6009C8047 /* LoggerInvoker.swift in Sources */,
 				F874E4F52225E2CD00364CAE /* Gameboard.swift in Sources */,
@@ -237,6 +256,7 @@
 				F874E4F32225E0B100364CAE /* GameboardSize.swift in Sources */,
 				F874E4E42225CB0700364CAE /* XView.swift in Sources */,
 				3A4EA3A6279172CE00F35570 /* GameProtocols.swift in Sources */,
+				3AAB2CFD2795C44B009C8047 /* PlayerMoves.swift in Sources */,
 				3AAB2CF1279591BD009C8047 /* LogCommand.swift in Sources */,
 				3AAB2CEE279590CC009C8047 /* LogAction.swift in Sources */,
 				F874E4DB2225C1AC00364CAE /* GameboardView.swift in Sources */,

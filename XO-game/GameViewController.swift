@@ -2,6 +2,12 @@
 
 import UIKit
 
+enum gameMode {
+    case pvp
+    case vsAI
+    case fiveByfive
+}
+
 class GameViewController: UIViewController {
     
     @IBOutlet var gameboardView: GameboardView!
@@ -9,9 +15,12 @@ class GameViewController: UIViewController {
     @IBOutlet var secondPlayerTurnLabel: UILabel!
     @IBOutlet var winnerLabel: UILabel!
     @IBOutlet var restartButton: UIButton!
+    @IBOutlet weak var vsAIbutton: UIButton!
+    @IBOutlet weak var pvpButton: UIButton!
     
     private let gameboard = Gameboard()
     private lazy var referee = Referee(gameboard: self.gameboard)
+    private var counter = 0
     
     private var currentState: GameState! {
         didSet {
@@ -58,7 +67,12 @@ class GameViewController: UIViewController {
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
         Log(.restartGame)
+        gameboardView.clear()
+        gameboard.clear()
         goToFirstState()
+        GameSession.shared.playerFirstMoves = []
+        GameSession.shared.playerSecondMoves = []
+        counter = 0
     }
 }
 
